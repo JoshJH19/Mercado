@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.random.*;
-public class Productos extends Usuario {
+public class Productos{
     private String descripcion;
     private String nomProducto;
     private double precio;
@@ -11,7 +11,7 @@ public class Productos extends Usuario {
     //Creamos los numeros aleatorios para los precios y la cantidades
     private Random Al = new Random();
     private int randomPrecio = Al.nextInt(100);
-    private int randomCantidad = Al.nextInt(10);
+    private int randomCantidad = Al.nextInt(20);
 
     public Productos() {
     }
@@ -68,6 +68,7 @@ public class Productos extends Usuario {
     public int getStock() {
         return stock;
     }
+
     public void setStock(int stock) {
         this.stock = stock;
     }
