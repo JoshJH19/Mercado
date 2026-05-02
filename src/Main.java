@@ -6,6 +6,7 @@ class Principal{
         Scanner sc = new Scanner(System.in);
         ArrayList <Usuario> listUsuarios = new ArrayList();
         ArrayList <Productos> listCarrito = new ArrayList();
+        ArrayList <Factura> Historial = new ArrayList();
 //Los productos que van a estar a la venta en nuestro mercado Nota:Voy a cambiar todo mi codigo y lo voy a hacer mas eficiente
         Productos p1 = new Productos("600ml", "Coca cola", 0, 0, 1003, 500);
         Productos p2 = new Productos("600ml", "Manzanita", 0, 0, 1007, 703);
@@ -62,7 +63,7 @@ class Principal{
                                 System.out.println("Usuario no encontrado");
                             }
 
-                            // creamos una condicion para dar acceso a la cuenta que ingreso correctamente sus datos
+                   // creamos una condicion para dar acceso a la cuenta que ingreso correctamente sus datos
                             if (acceso) {
                                 //Creamos una segunda variable boolean llamada salida2 para el segundo while para crear el apartado de compras,actualizar productos, eliminar productos, mostrar productos, filtrar productos y cerrar secion.
                                 boolean salir2 = false;
@@ -72,15 +73,13 @@ class Principal{
                                     System.out.println("----------------------------------------------");
                                     System.out.println("2.-Comprar producto");
                                     System.out.println("----------------------------------------------");
-                                    System.out.println("3.-Actualizar productos");
+                                    System.out.println("3-Eliminar producto");
                                     System.out.println("----------------------------------------------");
-                                    System.out.println("4-Eliminar producto");
+                                    System.out.println("4.-Filtrar productos");
                                     System.out.println("----------------------------------------------");
-                                    System.out.println("5.-Filtrar productos");
+                                    System.out.println("5.-Generar factura");
                                     System.out.println("----------------------------------------------");
-                                    System.out.println("6.-Generar factura");
-                                    System.out.println("----------------------------------------------");
-                                    System.out.println("7.-Salir del mercado");
+                                    System.out.println("6.-Salir del mercado");
                                     System.out.println("----------------------------------------------");
 
 
@@ -235,21 +234,31 @@ class Principal{
                                                     sc.next();}
                                                 }
                                                 break;
-                                            case 3:
+                                            case 5:
 
-                                                break;
 
-                                            case 6:
-
+                                                Factura factura = new Factura();
                                                 Compras compras = new Compras(listCarrito);
-                                                for( Productos prod : listCarrito) {
-                                                    System.out.println(prod.getNomProducto()+" * "+prod.getCantidad()+" : $"+(prod.getPrecio()*prod.getCantidad()));
+                                                System.out.println("--------------------Factura-------------------");
+                                                for( Productos p : listCarrito) {
+
+                                                    System.out.println(p.getNomProducto()+" * "+p.getCantidad());
+
                                                 }
+                                                compras.CalcularTotalPagar();
+                                                System.out.println("----------------------------------------------");
+                                                System.out.println("Total = $" + compras.getTotalPagar());
+                                                System.out.println("IVA = $" + compras.getTotalPagar() * 0.16);
+                                                System.out.println("----------------------------------------------");
+
                                                 break;
+                                            case 6:
+                                                salir3 = true;
+                                                System.out.println("Saliendo a la pagina principal");
 
 
                                         }
-                                    }else {   System.out.println("Esa no es una opcion valida vuelva a intentar");
+                                    } else {   System.out.println("Esa no es una opcion valida vuelva a intentar");
                                         sc.next();}
                                 }
                             }
