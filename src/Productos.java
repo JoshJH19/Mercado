@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.random.*;
-public class Productos{
+public class Productos extends Usuario{
     private String descripcion;
     private String nomProducto;
     private double precio;

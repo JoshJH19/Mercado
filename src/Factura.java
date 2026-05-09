@@ -1,50 +1,49 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-class Factura extends Compras{
+class Factura extends Compras {
     private LocalDate fecha;
-    private String usuarioNombre;
-    private String IVA;
-    private double totalPagar;
-    private ArrayList<Productos> listCarrito;
+    private double totalPagar1;
+    private double totalPagarIva;
+    private double totalPagarTotal;
 
-    public Factura() {}
-    public Factura(LocalDate fecha, String usuarioNombre, String IVA, ArrayList<Productos> listCarrito) {
-
-        this.fecha = fecha;
-        this.usuarioNombre = usuarioNombre;
-        this.IVA = IVA;
-        this.totalPagar = 0;
-        this.listCarrito = listCarrito;
+    public Factura() {
     }
+
+    public Factura(LocalDate fecha, double totalPagar1, double totalPagarIva, double totalPagarTotal) {
+        this.fecha = fecha;
+        this.totalPagar1 = totalPagar1;
+        this.totalPagarIva = totalPagarIva;
+        this.totalPagarTotal = totalPagarTotal;
+    }
+
     public LocalDate getFecha() {
         return fecha;
     }
-    public void setFecha(LocalDate fecha) {
+
+    public void setFecha(LocalDate Fecha) {
         this.fecha = fecha;
     }
-    public String getUsuarioNombre() {
-        return usuarioNombre;
+    public double getTotalPagar1() {
+        return totalPagar1;
     }
-    public void setUsuarioNombre(String usuarioNombre) {
-        this.usuarioNombre = usuarioNombre;
+
+    public void setTotalPagar1(double totalPagar1) {
+        this.totalPagar1 = totalPagar1;
     }
-    public String getIVA() {
-        return IVA;
+
+    public double getTotalPagarIva() {
+        return totalPagarIva;
     }
-    public void setIVA(String IVA) {
-        this.IVA = IVA;
+    public void setTotalPagarIva(double totalPagarIva) {
+        this.totalPagarIva = totalPagarIva;
     }
-    public double getTotalPagar() {
-        return totalPagar;
+    public double getTotalPagarTotal() {
+        return totalPagarTotal;
     }
-    public void setTotalPagar(double totalPagar) {
-        this.totalPagar = totalPagar;
+    public double setTotalPagarTotal(double totalPagarTotal) {
+        this.totalPagarTotal = totalPagarTotal;
+        return totalPagarTotal;
     }
-    public ArrayList<Productos> getListCarrito() {
-        return listCarrito;
-    }
-    public void setListCarrito(ArrayList<Productos> listCarrito) {
-        this.listCarrito = listCarrito;
-    }
+
 }
